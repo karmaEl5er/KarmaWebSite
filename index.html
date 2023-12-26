@@ -910,11 +910,7 @@ https://templatemo.com/tm-581-kind-heart-charity
         formEntries["type"] = "vol";
 
         // Use Axios instead of fetch
-        axios.post('http://karma-mailer-service.onrender.com/send-email', formEntries, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        axios.post('http://karma-mailer-service.onrender.com/send-email', formEntries)
         .then(response => {
             console.log('Success:', response.data);
             // Handle success, e.g., show a success message
@@ -931,12 +927,10 @@ https://templatemo.com/tm-581-kind-heart-charity
         const formEntries = Object.fromEntries(formData);
         formEntries["type"] = "con";
 
+        const formJson=json.
+
         // Use Axios instead of fetch
-        axios.post('http://karma-mailer-service.onrender.com/send-email', formEntries, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+        axios.post('http://karma-mailer-service.onrender.com/send-email', formEntries)
         .then(response => {
             console.log('Success:', response.data);
             // Handle success, e.g., show a success message
