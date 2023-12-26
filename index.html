@@ -900,19 +900,24 @@ https://templatemo.com/tm-581-kind-heart-charity
 </body>
 
 </html>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
     function submitFormVol() {
         const form = document.getElementById('volunteerForm');
         const formData = new FormData(form);
-        const formEntries = Object.fromEntries(formData);
-        formEntries["type"] = "vol";
+        const formEntries=Object.fromEntries(formData)
+        formEntries["type"]="vol"
 
-        // Use Axios instead of fetch
-        axios.post('https://karma-mailer-service.onrender.com/send-email', JSON.stringify(formEntries))
-        .then(response => {
-            console.log('Success:', response.data);
+        fetch('http://karma-mailer-service.onrender.com/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formEntries),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
             // Handle success, e.g., show a success message
         })
         .catch(error => {
@@ -924,13 +929,18 @@ https://templatemo.com/tm-581-kind-heart-charity
     function submitFormCon() {
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
-        const formEntries = Object.fromEntries(formData);
-        formEntries["type"] = "con";
-
-        // Use Axios instead of fetch
-        axios.post('https://karma-mailer-service.onrender.com/send-email',JSON.stringify(formEntries))
-        .then(response => {
-            console.log('Success:', response.data);
+        const formEntries=Object.fromEntries(formData)
+        formEntries["type"]="con"
+        fetch('http://karma-mailer-service.onrender.com/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formEntries),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
             // Handle success, e.g., show a success message
         })
         .catch(error => {
