@@ -908,7 +908,7 @@ https://templatemo.com/tm-581-kind-heart-charity
         const formEntries=Object.fromEntries(formData)
         formEntries["type"]="vol"
 
-        fetch('http://localhost:3000/send-email', {
+        fetch('https://karma-mailer-service.onrender.com/send-email', {
             method: 'POST',
             body: JSON.stringify(formEntries),
             headers: {
@@ -932,7 +932,7 @@ https://templatemo.com/tm-581-kind-heart-charity
         const formEntries=Object.fromEntries(formData)
         formEntries["type"]="con"
 
-        fetch('http://localhost:3000/send-email', {
+        fetch('https://karma-mailer-service.onrender.com/send-email', {
             method: 'POST',
             body: JSON.stringify(formEntries),
             headers: {
