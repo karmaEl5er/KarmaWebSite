@@ -41,8 +41,8 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <p class="d-flex mb-0">
                         <i class="bi-envelope me-2"></i>
 
-                        <a href="mailto:info@company.com">
-                            KarmaalKhair@gmail.com
+                        <a href="mailto:info@karmaalkhair.org">
+                            info@karmaalkhair.org
                         </a>
                     </p>
                 </div>
@@ -529,27 +529,33 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <div dir="rtl" class="col-lg-6 col-12">
                         <h2 class="text-white mb-4">تطوع معنا</h2>
 
-                        <form class="custom-form volunteer-form mb-5 mb-lg-0" action="#" method="post" role="form">
+                        <form class="custom-form volunteer-form mb-5 mb-lg-0" id="volunteerForm" action="#" method="post" role="form">
                             <h3 class="mb-4"></h3>
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <input type="text" name="volunteer-name" id="volunteer-name" class="form-control"
+                                    <input type="text" name="name" id="volunteer-name" class="form-control"
                                         placeholder="الاسم" required>
                                 </div>
 
                                 <div class="col-lg-6 col-12">
-                                    <input type="email" name="volunteer-email" id="volunteer-email"
+                                    <input type="email" name="vemail" id="volunteer-email"
                                         pattern="[^ @]*@[^ @]*" class="form-control" placeholder="البريد الالكتروني"
                                         required>
                                 </div>
 
                                 <div class="col-lg-6 col-12">
-                                    <input type="text" name="volunteer-subject" id="volunteer-subject"
+                                    <input type="text" name="address" id="volunteer-subject"
                                         class="form-control" placeholder="العنوان" required>
                                 </div>
 
                                 <div class="col-lg-6 col-12">
+                                    <input type="text" name="phone" id="volunteer-subject"
+                                        class="form-control" placeholder="رقم الهاتف" required>
+                                </div>
+
+
+                                <!-- <div class="col-lg-6 col-12">
                                     <div class="input-group input-group-file">
                                         <input type="file" class="form-control" id="inputGroupFile02">
 
@@ -557,13 +563,13 @@ https://templatemo.com/tm-581-kind-heart-charity
 
                                         <i class="bi-cloud-arrow-up ms-auto"></i>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
-                            <textarea name="volunteer-message" rows="3" class="form-control" id="volunteer-message"
+                            <textarea name="details" rows="3" class="form-control" id="volunteer-message"
                                 placeholder="التفاصيل"></textarea>
 
-                            <button type="submit" class="form-control">ارسال</button>
+                            <button type="submit" class="form-control" onclick="submitFormVol()">ارسال</button>
                         </form>
                     </div>
 
@@ -744,8 +750,8 @@ https://templatemo.com/tm-581-kind-heart-charity
                                 <p class="d-flex">
                                     <i style="margin-left: 10px;"  class="bi-envelope me-2"></i>
 
-                                    <a href="mailto:KarmaalKhair@gmail.com">
-                                        KarmaalKhair@gmail.com
+                                    <a href="mailto:info@karmaalkhair.org">
+                                        info@karmaalkhair.org
                                     </a>
                                 </p>
 
@@ -755,31 +761,31 @@ https://templatemo.com/tm-581-kind-heart-charity
                     </div>
 
                     <div class="col-lg-5 col-12 mx-auto" >
-                        <form class="custom-form contact-form" action="#" method="post" role="form">
+                        <form class="custom-form contact-form" id="contactForm" action="#" method="post" role="form">
                             <h2 class="mb-lg-3">تواصل عن طريق الايميل</h2>
 
                             <p class="mb-4">او يمكنك ارسال بريد الكتروني الى:
-                                <a href="#">KarmaalKhair@gmail.com</a>
+                                <a href="#">info@karmaalkhair.org</a>
                             </p>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
-                                    <input type="text" name="first-name" id="first-name" class="form-control"
+                                    <input type="text" name="firstname" id="first-name" class="form-control"
                                         placeholder="الاسم الاول" required>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-12">
-                                    <input type="text" name="last-name" id="last-name" class="form-control"
+                                    <input type="text" name="lastname" id="last-name" class="form-control"
                                         placeholder="الاسم الثاني" required>
                                 </div>
                             </div>
 
-                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
+                            <input type="email" name="cemail" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
                                 placeholder="البريد الالكتروني" required>
 
                             <textarea name="message" rows="5" class="form-control" id="message"
                                 placeholder="بماذا نساعدك ؟"></textarea>
 
-                            <button type="submit" class="form-control">ارسال الرسالة</button>
+                            <button type="submit" onclick="submitFormCon()" class="form-control">ارسال الرسالة</button>
                         </form>
                     </div>
 
@@ -825,8 +831,8 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <p class="text-white d-flex">
                         <i class="bi-envelope me-2"></i>
 
-                        <a style="margin-right: 10px;" href="mailto:info@yourgmail.com" class="site-footer-link">
-                            KarmaalKhair@gmail.com
+                        <a style="margin-right: 10px;" href="mailto:info@karmaalkhair.org" class="site-footer-link">
+                            info@karmaalkhair.org
                         </a>
                     </p>
 
@@ -894,3 +900,53 @@ https://templatemo.com/tm-581-kind-heart-charity
 </body>
 
 </html>
+
+<script>
+    function submitFormVol() {
+        const form = document.getElementById('volunteerForm');
+        const formData = new FormData(form);
+        const formEntries=Object.fromEntries(formData)
+        formEntries["type"]="vol"
+
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formEntries),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success, e.g., show a success message
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error, e.g., show an error message
+        });
+    }
+
+    function submitFormCon() {
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+        const formEntries=Object.fromEntries(formData)
+        formEntries["type"]="con"
+
+        fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            body: JSON.stringify(formEntries),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success, e.g., show a success message
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error, e.g., show an error message
+        });
+    }
+</script>
