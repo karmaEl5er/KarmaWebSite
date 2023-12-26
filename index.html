@@ -529,7 +529,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <div dir="rtl" class="col-lg-6 col-12">
                         <h2 class="text-white mb-4">تطوع معنا</h2>
 
-                        <form class="custom-form volunteer-form mb-5 mb-lg-0" id="volunteerForm" action="#" method="post" role="form">
+                        <form class="custom-form volunteer-form mb-5 mb-lg-0" id="volunteerForm" method="post" role="form">
                             <h3 class="mb-4"></h3>
 
                             <div class="row">
@@ -761,7 +761,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                     </div>
 
                     <div class="col-lg-5 col-12 mx-auto" >
-                        <form class="custom-form contact-form" id="contactForm" action="#" method="post" role="form">
+                        <form class="custom-form contact-form" id="contactForm" method="post" role="form">
                             <h2 class="mb-lg-3">تواصل عن طريق الايميل</h2>
 
                             <p class="mb-4">او يمكنك ارسال بريد الكتروني الى:
@@ -900,24 +900,19 @@ https://templatemo.com/tm-581-kind-heart-charity
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
     function submitFormVol() {
         const form = document.getElementById('volunteerForm');
         const formData = new FormData(form);
-        const formEntries=Object.fromEntries(formData)
-        formEntries["type"]="vol"
+        const formEntries = Object.fromEntries(formData);
+        formEntries["type"] = "vol";
 
-        fetch('https://karma-mailer-service.onrender.com/send-email', {
-            method: 'POST',
-            body: JSON.stringify(formEntries),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
+        // Use Axios instead of fetch
+        axios.post('https://karma-mailer-service.onrender.com/send-email', JSON.stringify(formEntries))
+        .then(response => {
+            console.log('Success:', response.data);
             // Handle success, e.g., show a success message
         })
         .catch(error => {
@@ -929,19 +924,13 @@ https://templatemo.com/tm-581-kind-heart-charity
     function submitFormCon() {
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
-        const formEntries=Object.fromEntries(formData)
-        formEntries["type"]="con"
+        const formEntries = Object.fromEntries(formData);
+        formEntries["type"] = "con";
 
-        fetch('https://karma-mailer-service.onrender.com/send-email', {
-            method: 'POST',
-            body: JSON.stringify(formEntries),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
+        // Use Axios instead of fetch
+        axios.post('https://karma-mailer-service.onrender.com/send-email',JSON.stringify(formEntries))
+        .then(response => {
+            console.log('Success:', response.data);
             // Handle success, e.g., show a success message
         })
         .catch(error => {
