@@ -529,7 +529,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <div dir="rtl" class="col-lg-6 col-12">
                         <h2 class="text-white mb-4">تطوع معنا</h2>
 
-                        <form class="custom-form volunteer-form mb-5 mb-lg-0" id="volunteerForm" action="#" method="post" role="form">
+                        <form class="custom-form volunteer-form mb-5 mb-lg-0" id="volunteerForm" action="#" method="post" role="form" onsubmit="submitFormVol(event)">
                             <h3 class="mb-4"></h3>
 
                             <div class="row">
@@ -569,7 +569,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                             <textarea name="details" rows="3" class="form-control" id="volunteer-message"
                                 placeholder="التفاصيل"></textarea>
 
-                            <button type="submit" class="form-control" onclick="submitFormVol()">ارسال</button>
+                            <button type="submit" class="form-control">ارسال</button>
                         </form>
                     </div>
 
@@ -761,7 +761,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                     </div>
 
                     <div class="col-lg-5 col-12 mx-auto" >
-                        <form class="custom-form contact-form" id="contactForm" action="#" method="post" role="form">
+                        <form class="custom-form contact-form" id="contactForm" action="#" method="post" role="form" onsubmit="submitFormCon(event)">
                             <h2 class="mb-lg-3">تواصل عن طريق الايميل</h2>
 
                             <p class="mb-4">او يمكنك ارسال بريد الكتروني الى:
@@ -904,7 +904,8 @@ https://templatemo.com/tm-581-kind-heart-charity
 
 <script>
 
-    function submitFormVol() {
+    function submitFormVol(event) {
+        event.preventDefault();
         const form = document.getElementById('volunteerForm');
         const formData = new FormData(form);
         const formEntries=Object.fromEntries(formData)
@@ -914,6 +915,8 @@ https://templatemo.com/tm-581-kind-heart-charity
         axios.post('https://karma-mailer-service.onrender.com/send-email', formEntries)
         .then(response => {
             console.log('Success:', response.data);
+            form.reset();
+
             // Handle success, e.g., show a success message
         })
         .catch(error => {
@@ -922,7 +925,8 @@ https://templatemo.com/tm-581-kind-heart-charity
         });
     }
 
-    function submitFormCon() {
+    function submitFormCon(event) {
+        event.preventDefault();
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
         const formEntries=Object.fromEntries(formData)
@@ -932,6 +936,8 @@ https://templatemo.com/tm-581-kind-heart-charity
         axios.post('https://karma-mailer-service.onrender.com/send-email', formEntries)
         .then(response => {
             console.log('Success:', response.data);
+            form.reset();
+
             // Handle success, e.g., show a success message
         })
         .catch(error => {
