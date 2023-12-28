@@ -50,14 +50,15 @@ https://templatemo.com/tm-581-kind-heart-charity
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #5bc1ac;
+  --primary-color:                #0b4d3e;
+  --third-color:                  #20836f;
   --secondary-color:              #5a6f80;
   --section-bg-color:             #f0f8ff;
   --site-footer-bg-color:         #44525d;
   --custom-btn-bg-color:          #597081;
-  --custom-btn-bg-hover-color:    #5bc1ac;
+  --custom-btn-bg-hover-color:    #20836f;
   --dark-color:                   #000000;
-  --p-color:                      #717275;
+  --p-color:                      #5a5a5a;
   --border-color:                 #e9eaeb;
 
   --body-font-family:             'DroidArabicKufiRegular', serif;
@@ -148,7 +149,7 @@ p {
 ul li {
   color: var(--p-color);
   font-size: var(--p-font-size);
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-bold);
 }
 
 a, 
@@ -163,7 +164,8 @@ a {
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--third-color);
+  border-bottom: 3px solid var(--primary-color);
 }
 
 b,
@@ -352,10 +354,9 @@ strong {
   NAVIGATION              
 -----------------------------------------*/
 .navbar {
-  background: var(--white-color);
+  background: var(--primary-color);
   z-index: 9;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 30px;
 }
 
 .navbar-brand {
@@ -367,6 +368,7 @@ strong {
 .navbar-brand span {
   display: inline-block;
   vertical-align: middle;
+  align-items: center;
 }
 
 .navbar-brand small {
@@ -378,7 +380,7 @@ strong {
 }
 
 .logo {
-  width: 80px;
+  width: 150px;
   height: auto;
 }
 
@@ -408,7 +410,7 @@ strong {
   background: var(--white-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
-  max-width: 50px;
+  max-width: 100px;
   padding: 0;
   margin-top: 20px;
 }
@@ -1338,6 +1340,8 @@ blockquote::before {
   vertical-align: middle;
   margin-left: 20px;
   margin-bottom: 5px;
+
+
 }
 
 
@@ -1363,8 +1367,10 @@ blockquote::before {
   display: block;
   margin-right: 5px;
   text-align: center;
-  width: 35px;
-  height: 35px;
+  justify-items: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   line-height: 38px;
 }
 
