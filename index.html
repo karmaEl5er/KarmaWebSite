@@ -513,7 +513,7 @@
                             <textarea name="details" rows="3" class="form-control" id="volunteer-message"
                                 placeholder="التفاصيل"></textarea>
 
-                            <button type="submit" class="form-control">ارسال</button>
+                            <button style="position: relative;" id="sendVolanteerBtn" type="submit" class="form-control">ارسال <div id="volanteerLoader"  class="loader"></div></button>
                         </form>
                     </div>
 
@@ -846,7 +846,7 @@
                             <textarea name="message" rows="5" class="form-control" id="message"
                                 placeholder="بماذا نساعدك ؟"></textarea>
 
-                            <button type="submit" onclick="submitFormCon()" class="form-control">ارسال الرسالة</button>
+                            <button style="position: relative;" id="sendMessageBtn" type="submit" onclick="submitFormCon()" class="form-control">ارسال الرسالة<div id="senderLoader"  class="loader"></div></button>
                         </form>
                     </div>
 
@@ -984,6 +984,7 @@
             </div>
         </div>
     </footer>
+    </div>
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
@@ -1002,6 +1003,10 @@
 
     function submitFormVol(event) {
         event.preventDefault();
+        document.getElementById('sendVolanteerBtn').style.visibility = 'hidden';
+        document.getElementById('volanteerLoader').style.visibility = 'visible';
+        document.getElementById("sendVolanteerBtn").disabled = true;
+
         const form = document.getElementById('volunteerForm');
         const formData = new FormData(form);
         const formEntries=Object.fromEntries(formData)
@@ -1012,6 +1017,9 @@
         .then(response => {
             console.log('Success:', response.data);
             form.reset();
+            document.getElementById('sendVolanteerBtn').style.visibility = 'visible';
+            document.getElementById('volanteerLoader').style.visibility = 'hidden';
+            document.getElementById("sendVolanteerBtn").disabled = false;
 
             // Handle success, e.g., show a success message
         })
@@ -1023,6 +1031,11 @@
 
     function submitFormCon(event) {
         event.preventDefault();
+        document.getElementById('sendMessageBtn').style.visibility = 'hidden';
+        document.getElementById('senderLoader').style.visibility = 'visible';
+        document.getElementById("sendMessageBtn").disabled = true;
+
+
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
         const formEntries=Object.fromEntries(formData)
@@ -1033,6 +1046,9 @@
         .then(response => {
             console.log('Success:', response.data);
             form.reset();
+            document.getElementById('sendMessageBtn').style.visibility = 'visible';
+            document.getElementById('senderLoader').style.visibility = 'hidden';
+            document.getElementById("sendMessageBtn").disabled = false;
 
             // Handle success, e.g., show a success message
         })
